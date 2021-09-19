@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mесто</title>
+  </head>
+  <body class="page">
+    <div class="page__content">
+      <header class="header">
+        <div class="logo logo_position_header"></div>
+        <div class="header__line"></div>
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile-block">
+            <img
+              class="profile-block__avatar"
+              src="./images/avatar.jpg"
+              alt="Аватар"
+            />
+            <div class="profile-info">
+              <div class="profile-info__name-section">
+                <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+                <button
+                  class="profile-info__edit-button button-opacity"
+                ></button>
+              </div>
+              <p class="profile-info__description">Исследователь океана</p>
+            </div>
+          </div>
+          <button class="add-button button-opacity">
+            <img
+              class="add-button__image"
+              src="./images/logo/add_button.svg"
+              alt="Добавить"
+            />
+          </button>
+        </section>
+        <section class="places">
+          <figure class="place-card">
+            <img
+              class="place-card__image"
+              src="./images/bermamit.jpg"
+              alt="Большой Бермамыт"
+            />
+            <figcaption class="place-card__place-info">
+              <h2 class="place-card__title">Большой Бермамыт</h2>
+              <img
+                class="like-button button-opacity"
+                src="./images/logo/like_icon.svg"
+                alt="Лайк"
+              />
+            </figcaption>
+          </figure>
+          <figure class="place-card">
+            <img
+              class="place-card__image"
+              src="./images/dombai.jpg"
+              alt="Домбай"
+            />
+            <figcaption class="place-card__place-info">
+              <h2 class="place-card__title">Домбай</h2>
+              <img
+                class="like-button"
+                src="./images/logo/like_icon.svg"
+                alt="Лайк"
+              />
+            </figcaption>
+          </figure>
+          <figure class="place-card">
+            <img
+              class="place-card__image"
+              src="./images/zelenogradsk.jpg"
+              alt="Зеленоградск"
+            />
+            <figcaption class="place-card__place-info">
+              <h2 class="place-card__title">Зеленоградск</h2>
+              <img
+                class="like-button"
+                src="./images/logo/like_icon.svg"
+                alt="Лайк"
+              />
+            </figcaption>
+          </figure>
+          <figure class="place-card">
+            <img
+              class="place-card__image"
+              src="./images/elbrus.jpg"
+              alt="Эльбрус"
+            />
+            <figcaption class="place-card__place-info">
+              <h2 class="place-card__title">Эльбрус</h2>
+              <img
+                class="like-button"
+                src="./images/logo/like_icon.svg"
+                alt="Лайк"
+              />
+            </figcaption>
+          </figure>
+          <figure class="place-card">
+            <img
+              class="place-card__image"
+              src="./images/karachaevsk.jpg"
+              alt="Карачаевск"
+            />
+            <figcaption class="place-card__place-info">
+              <h2 class="place-card__title">Карачаевск</h2>
+              <img
+                class="like-button"
+                src="./images/logo/like_icon.svg"
+                alt="Лайк"
+              />
+            </figcaption>
+          </figure>
+          <figure class="place-card">
+            <img
+              class="place-card__image"
+              src="./images/rosa_hutor.jpg"
+              alt="Роза Хутор"
+            />
+            <figcaption class="place-card__place-info">
+              <h2 class="place-card__title">Роза Хутор</h2>
+              <img
+                class="like-button"
+                src="./images/logo/like_icon.svg"
+                alt="Лайк"
+              />
+            </figcaption>
+          </figure>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__subtitle">&copy;2020 Mesto Russia</p>
+      </footer>
+    </div>
+    <section class="popup">
+      <div class="popup__container">
+        <form class="popup__form">
+          <img
+            class="popup__close-button button-opacity"
+            src="./images/logo/close_icon.svg"
+            alt=""
+          />
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input class="popup__name" type="text" value="Жак-Ив Кусто" />
+          <div class="popup__line"></div>
+          <input
+            class="popup__description"
+            type="text"
+            value="Исследователь океана"
+          />
+          <div class="popup__line"></div>
+          <button class="save-button save-button_opacity">Сохранить</button>
+        </form>
+      </div>
+    </section>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
