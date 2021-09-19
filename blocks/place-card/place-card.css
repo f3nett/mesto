@@ -1,0 +1,10 @@
+.place-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 282px;
+  height: 361px;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 10px;
+}

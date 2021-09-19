@@ -1,0 +1,14 @@
+.profile-block__avatar {
+  width: 120px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin: 0 auto 26px;
+}
+
+@media (min-width: 1280px) {
+  .profile-block__avatar {
+    margin-left: 0;
+    margin-right: 30px;
+    margin-bottom: 0;
+  }
+}

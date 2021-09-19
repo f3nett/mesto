@@ -1,0 +1,15 @@
+.popup__close-button {
+  position: absolute;
+  width: 20px;
+  top: -36px;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (min-width: 1280px) {
+  .popup__close-button {
+    width: 32px;
+    top: -40px;
+    right: -40px;
+  }
+}

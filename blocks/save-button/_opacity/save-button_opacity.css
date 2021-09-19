@@ -1,0 +1,7 @@
+.save-button_opacity {
+  transition: opacity 0.4s ease;
+}
+
+.save-button_opacity:hover {
+  opacity: 0.8;
+}
