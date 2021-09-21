@@ -1,16 +1,15 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
-@import url(../blocks/button-opacity/button-opacity.css);
-@import url(../blocks/save-button/_opacity/save-button_opacity.css);
+@import url(../blocks/button/_opacity/button_opacity_lite.css);
+@import url(../blocks/button/_opacity/button_opacity_medium.css);
 
 @import url(../blocks/page/page.css);
 @import url(../blocks/page/_no-scroll/page_no-scroll.css);
 @import url(../blocks/page/__content/content.css);
 
 @import url(../blocks/header/header.css);
-@import url(../blocks/header/__line/header__line.css);
 @import url(../blocks/logo/logo.css);
-@import url(../blocks/logo/_position/logo_position_header.css);
+@import url(../blocks/header/__logo/header__logo.css);
 
 @import url(../blocks/content/content.css);
 @import url(../blocks/profile/profile.css);
@@ -21,6 +20,7 @@
 @import url(../blocks/profile-info/__name/profile-info__name.css);
 @import url(../blocks/profile-info/__description/profile-info__description.css);
 @import url(../blocks/profile-info/__edit-button/profile-info__edit-button.css);
+@import url(../blocks/profile-info/__edit-icon/profile-info__edit-icon.css);
 
 @import url(../blocks/add-button/add-button.css);
 @import url(../blocks/add-button/__image/add-button__image.css);

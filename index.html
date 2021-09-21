@@ -9,8 +9,7 @@
   <body class="page">
     <div class="page__content">
       <header class="header">
-        <div class="logo logo_position_header"></div>
-        <div class="header__line"></div>
+        <div class="logo header__logo"></div>
       </header>
       <main class="content">
         <section class="profile">
@@ -24,13 +23,19 @@
               <div class="profile-info__name-section">
                 <h1 class="profile-info__name">Жак-Ив Кусто</h1>
                 <button
-                  class="profile-info__edit-button button-opacity"
-                ></button>
+                  class="profile-info__edit-button button button_opacity_medium"
+                >
+                  <img
+                    class="profile-info__edit-icon"
+                    src="./images/logo/edit_icon.svg"
+                    alt="Редактировать"
+                  />
+                </button>
               </div>
               <p class="profile-info__description">Исследователь океана</p>
             </div>
           </div>
-          <button class="add-button button-opacity">
+          <button class="add-button button button_opacity_medium">
             <img
               class="add-button__image"
               src="./images/logo/add_button.svg"
@@ -48,7 +53,7 @@
             <figcaption class="place-card__place-info">
               <h2 class="place-card__title">Большой Бермамыт</h2>
               <img
-                class="like-button button-opacity"
+                class="like-button button button_opacity_medium"
                 src="./images/logo/like_icon.svg"
                 alt="Лайк"
               />
@@ -63,7 +68,7 @@
             <figcaption class="place-card__place-info">
               <h2 class="place-card__title">Домбай</h2>
               <img
-                class="like-button"
+                class="like-button button button_opacity_medium"
                 src="./images/logo/like_icon.svg"
                 alt="Лайк"
               />
@@ -78,7 +83,7 @@
             <figcaption class="place-card__place-info">
               <h2 class="place-card__title">Зеленоградск</h2>
               <img
-                class="like-button"
+                class="like-button button button_opacity_medium"
                 src="./images/logo/like_icon.svg"
                 alt="Лайк"
               />
@@ -93,7 +98,7 @@
             <figcaption class="place-card__place-info">
               <h2 class="place-card__title">Эльбрус</h2>
               <img
-                class="like-button"
+                class="like-button button button_opacity_medium"
                 src="./images/logo/like_icon.svg"
                 alt="Лайк"
               />
@@ -108,7 +113,7 @@
             <figcaption class="place-card__place-info">
               <h2 class="place-card__title">Карачаевск</h2>
               <img
-                class="like-button"
+                class="like-button button button_opacity_medium"
                 src="./images/logo/like_icon.svg"
                 alt="Лайк"
               />
@@ -123,7 +128,7 @@
             <figcaption class="place-card__place-info">
               <h2 class="place-card__title">Роза Хутор</h2>
               <img
-                class="like-button"
+                class="like-button button button_opacity_medium"
                 src="./images/logo/like_icon.svg"
                 alt="Лайк"
               />
@@ -139,7 +144,7 @@
       <div class="popup__container">
         <form class="popup__form">
           <img
-            class="popup__close-button button-opacity"
+            class="popup__close-button button button_opacity_medium"
             src="./images/logo/close_icon.svg"
             alt=""
           />
@@ -152,7 +157,9 @@
             value="Исследователь океана"
           />
           <div class="popup__line"></div>
-          <button class="save-button save-button_opacity">Сохранить</button>
+          <button class="save-button button button_opacity_lite">
+            Сохранить
+          </button>
         </form>
       </div>
     </section>
