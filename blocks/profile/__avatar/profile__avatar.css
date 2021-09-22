@@ -1,4 +1,4 @@
-.profile-block__avatar {
+.profile__avatar {
   width: 120px;
   box-sizing: border-box;
   border-radius: 50%;
@@ -6,7 +6,7 @@
 }
 
 @media (min-width: 1280px) {
-  .profile-block__avatar {
+  .profile__avatar {
     margin-left: 0;
     margin-right: 30px;
     margin-bottom: 0;

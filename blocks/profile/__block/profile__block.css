@@ -1,10 +1,10 @@
-.profile-block {
+.profile__block {
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 1280px) {
-  .profile-block {
+  .profile__block {
     flex-direction: row;
     align-items: center;
   }

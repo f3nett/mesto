@@ -12,7 +12,6 @@
   padding: 25px 22px;
   display: flex;
   position: relative;
-  flex-direction: column;
 }
 
 @media (min-width: 1280px) {

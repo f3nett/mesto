@@ -1,6 +1,7 @@
 .content {
   padding-left: 19px;
   padding-right: 19px;
+  flex: 1;
 }
 
 @media (min-width: 1280px) {

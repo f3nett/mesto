@@ -1,18 +1,16 @@
-.profile-info__edit-button {
+.profile__edit-button {
   background: transparent;
   border: 1px solid #ffffff;
-  padding: 0;
   min-width: 18px;
   height: 18px;
   margin-left: 10px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 @media (min-width: 1280px) {
-  .profile-info__edit-button {
+  .profile__edit-button {
     width: 24px;
     height: 24px;
     margin-left: 18px;

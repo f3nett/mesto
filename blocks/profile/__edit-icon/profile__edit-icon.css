@@ -1,9 +1,9 @@
-.profile-info__edit-icon {
+.profile__edit-icon {
   width: 7.5px;
 }
 
 @media (min-width: 1280px) {
-  .profile-info__edit-icon {
+  .profile__edit-icon {
     width: 10px;
   }
 }
