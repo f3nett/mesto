@@ -11,6 +11,8 @@
 
 @media (min-width: 1280px) {
   .footer__subtitle {
+    font-size: 18px;
+    line-height: 22px;
     padding-top: 67px;
     padding-bottom: 60px;
   }

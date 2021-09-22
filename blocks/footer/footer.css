@@ -7,6 +7,7 @@
   font-family: "Inter", Arial, Helvetica, sans-serif;
   padding-left: 19px;
   padding-right: 19px;
+  flex-shrink: 0;
 }
 
 @media (min-width: 1280px) {

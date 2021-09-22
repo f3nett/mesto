@@ -1,9 +1,0 @@
-.add-button__image {
-  width: 16px;
-}
-
-@media (min-width: 1280px) {
-  .add-button__image {
-    width: 22px;
-  }
-}

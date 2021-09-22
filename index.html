@@ -9,153 +9,175 @@
   <body class="page">
     <div class="page__content">
       <header class="header">
-        <div class="logo logo_position_header"></div>
-        <div class="header__line"></div>
+        <div class="logo header__logo"></div>
       </header>
       <main class="content">
         <section class="profile">
-          <div class="profile-block">
+          <div class="profile__block">
             <img
-              class="profile-block__avatar"
+              class="profile__avatar"
               src="./images/avatar.jpg"
               alt="Аватар"
             />
-            <div class="profile-info">
-              <div class="profile-info__name-section">
-                <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+            <div class="profile__info">
+              <div class="profile__name-section">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <button
-                  class="profile-info__edit-button button-opacity"
-                ></button>
+                  class="profile__edit-button button button_opacity_medium"
+                  type="button"
+                >
+                  <img
+                    class="profile__edit-icon"
+                    src="./images/logo/edit_icon.svg"
+                    alt="Редактировать"
+                  />
+                </button>
               </div>
-              <p class="profile-info__description">Исследователь океана</p>
+              <p class="profile__description">Исследователь океана</p>
             </div>
           </div>
-          <button class="add-button button-opacity">
+          <button
+            class="profile__add-button button button_opacity_medium"
+            type="button"
+          >
             <img
-              class="add-button__image"
+              class="profile__add-icon"
               src="./images/logo/add_button.svg"
               alt="Добавить"
             />
           </button>
         </section>
         <section class="places">
-          <figure class="place-card">
+          <article class="place-card">
             <img
               class="place-card__image"
               src="./images/bermamit.jpg"
               alt="Большой Бермамыт"
             />
-            <figcaption class="place-card__place-info">
+            <div class="place-card__place-info">
               <h2 class="place-card__title">Большой Бермамыт</h2>
-              <img
-                class="like-button button-opacity"
-                src="./images/logo/like_icon.svg"
-                alt="Лайк"
-              />
-            </figcaption>
-          </figure>
-          <figure class="place-card">
+              <button
+                class="place-card__like-button button button_opacity_medium"
+                type="button"
+                aria-label="Лайк"
+              ></button>
+            </div>
+          </article>
+          <article class="place-card">
             <img
               class="place-card__image"
               src="./images/dombai.jpg"
               alt="Домбай"
             />
-            <figcaption class="place-card__place-info">
+            <div class="place-card__place-info">
               <h2 class="place-card__title">Домбай</h2>
-              <img
-                class="like-button"
-                src="./images/logo/like_icon.svg"
-                alt="Лайк"
-              />
-            </figcaption>
-          </figure>
-          <figure class="place-card">
+              <button
+                class="place-card__like-button button button_opacity_medium"
+                type="button"
+                aria-label="Лайк"
+              ></button>
+            </div>
+          </article>
+          <article class="place-card">
             <img
               class="place-card__image"
               src="./images/zelenogradsk.jpg"
               alt="Зеленоградск"
             />
-            <figcaption class="place-card__place-info">
+            <div class="place-card__place-info">
               <h2 class="place-card__title">Зеленоградск</h2>
-              <img
-                class="like-button"
-                src="./images/logo/like_icon.svg"
-                alt="Лайк"
-              />
-            </figcaption>
-          </figure>
-          <figure class="place-card">
+              <button
+                class="place-card__like-button button button_opacity_medium"
+                type="button"
+                aria-label="Лайк"
+              ></button>
+            </div>
+          </article>
+          <article class="place-card">
             <img
               class="place-card__image"
               src="./images/elbrus.jpg"
               alt="Эльбрус"
             />
-            <figcaption class="place-card__place-info">
+            <div class="place-card__place-info">
               <h2 class="place-card__title">Эльбрус</h2>
-              <img
-                class="like-button"
-                src="./images/logo/like_icon.svg"
-                alt="Лайк"
-              />
-            </figcaption>
-          </figure>
-          <figure class="place-card">
+              <button
+                class="place-card__like-button button button_opacity_medium"
+                type="button"
+                aria-label="Лайк"
+              ></button>
+            </div>
+          </article>
+          <article class="place-card">
             <img
               class="place-card__image"
               src="./images/karachaevsk.jpg"
               alt="Карачаевск"
             />
-            <figcaption class="place-card__place-info">
+            <div class="place-card__place-info">
               <h2 class="place-card__title">Карачаевск</h2>
-              <img
-                class="like-button"
-                src="./images/logo/like_icon.svg"
-                alt="Лайк"
-              />
-            </figcaption>
-          </figure>
-          <figure class="place-card">
+              <button
+                class="place-card__like-button button button_opacity_medium"
+                type="button"
+                aria-label="Лайк"
+              ></button>
+            </div>
+          </article>
+          <article class="place-card">
             <img
               class="place-card__image"
               src="./images/rosa_hutor.jpg"
               alt="Роза Хутор"
             />
-            <figcaption class="place-card__place-info">
+            <div class="place-card__place-info">
               <h2 class="place-card__title">Роза Хутор</h2>
-              <img
-                class="like-button"
-                src="./images/logo/like_icon.svg"
-                alt="Лайк"
-              />
-            </figcaption>
-          </figure>
+              <button
+                class="place-card__like-button button button_opacity_medium"
+                type="button"
+                aria-label="Лайк"
+              ></button>
+            </div>
+          </article>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__subtitle">&copy;2020 Mesto Russia</p>
       </footer>
     </div>
-    <section class="popup">
+    <div class="popup">
       <div class="popup__container">
-        <form class="popup__form">
-          <img
-            class="popup__close-button button-opacity"
-            src="./images/logo/close_icon.svg"
-            alt=""
-          />
+        <button
+          class="popup__close-button button button_opacity_medium"
+          type="reset"
+          aria-label="Закрыть"
+        ></button>
+        <form class="popup__form" name="profileForm">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__name" type="text" value="Жак-Ив Кусто" />
-          <div class="popup__line"></div>
+          <input
+            class="popup__name"
+            type="text"
+            name="name"
+            required
+            placeholder="Введите имя"
+            value="Жак-Ив Кусто"
+          />
           <input
             class="popup__description"
             type="text"
+            name="description"
+            required
+            placeholder="Введите описание"
             value="Исследователь океана"
           />
-          <div class="popup__line"></div>
-          <button class="save-button save-button_opacity">Сохранить</button>
+          <button
+            class="popup__save-button button button_opacity_lite"
+            type="submit"
+          >
+            Сохранить
+          </button>
         </form>
       </div>
-    </section>
+    </div>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
