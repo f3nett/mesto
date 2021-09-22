@@ -1,8 +1,8 @@
 .place-card {
+  width: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
-  width: 282px;
   overflow: hidden;
   background: #ffffff;
   border-radius: 10px;
