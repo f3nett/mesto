@@ -9,17 +9,13 @@ let profileName = document.querySelector('.profile__name');
 let profileDescription= document.querySelector('.profile__description');
 
 function popupOpen() {
-    if (popup.classList.contains('popup_opened') !== true) {
-        popup.classList.add('popup_opened');
-        page.classList.add('page_no-scroll');
-        inputName.value = profileName.textContent;
-        inputDescription.value = profileDescription.textContent;
-    }
+    popup.classList.add('popup_opened');
+    inputName.value = profileName.textContent;
+    inputDescription.value = profileDescription.textContent;
 }
 
 function popupClose() {
-        popup.classList.remove('popup_opened');
-        page.classList.remove('page_no-scroll');
+    popup.classList.remove('popup_opened');
 }
 
 function submitForm (event) {

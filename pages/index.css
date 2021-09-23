@@ -3,9 +3,9 @@
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_opacity/button_opacity_lite.css);
 @import url(../blocks/button/_opacity/button_opacity_medium.css);
+@import url(../blocks/button/_opacity/button_opacity_strong.css);
 
 @import url(../blocks/page/page.css);
-@import url(../blocks/page/_no-scroll/page_no-scroll.css);
 @import url(../blocks/page/__content/content.css);
 
 @import url(../blocks/header/header.css);
