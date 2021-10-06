@@ -31,15 +31,26 @@
 @import url(../blocks/place-card/__place-info/place-card__place-info.css);
 @import url(../blocks/place-card/__title/place-card__title.css);
 @import url(../blocks/place-card/__like-button/place-card__like-button.css);
+@import url(../blocks/place-card/__like-button/_active/place-card__like-button_active.css);
+@import url(../blocks/place-card/__trash-button/place-card__trash-button.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__subtitle/footer__subtitle.css);
 
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_opacity/popup_opacity_lite.css);
+@import url(../blocks/popup/_opacity/popup_opacity_strong.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container/_type/popup__container_type_form.css);
+@import url(../blocks/popup/__container/_type/popup__container_type_image.css);
 @import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__form/_opened/popup__form_opened.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
+@import url(../blocks/popup/__review-image/popup__review-image.css);
+@import url(../blocks/popup/__review-image/_opened/popup__review-image_opened.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__image-title/popup__image-title.css);

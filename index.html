@@ -47,98 +47,7 @@
             />
           </button>
         </section>
-        <section class="places">
-          <article class="place-card">
-            <img
-              class="place-card__image"
-              src="./images/bermamit.jpg"
-              alt="Большой Бермамыт"
-            />
-            <div class="place-card__place-info">
-              <h2 class="place-card__title">Большой Бермамыт</h2>
-              <button
-                class="place-card__like-button button button_opacity_strong"
-                type="button"
-                aria-label="Лайк"
-              ></button>
-            </div>
-          </article>
-          <article class="place-card">
-            <img
-              class="place-card__image"
-              src="./images/dombai.jpg"
-              alt="Домбай"
-            />
-            <div class="place-card__place-info">
-              <h2 class="place-card__title">Домбай</h2>
-              <button
-                class="place-card__like-button button button_opacity_strong"
-                type="button"
-                aria-label="Лайк"
-              ></button>
-            </div>
-          </article>
-          <article class="place-card">
-            <img
-              class="place-card__image"
-              src="./images/zelenogradsk.jpg"
-              alt="Зеленоградск"
-            />
-            <div class="place-card__place-info">
-              <h2 class="place-card__title">Зеленоградск</h2>
-              <button
-                class="place-card__like-button button button_opacity_strong"
-                type="button"
-                aria-label="Лайк"
-              ></button>
-            </div>
-          </article>
-          <article class="place-card">
-            <img
-              class="place-card__image"
-              src="./images/elbrus.jpg"
-              alt="Эльбрус"
-            />
-            <div class="place-card__place-info">
-              <h2 class="place-card__title">Эльбрус</h2>
-              <button
-                class="place-card__like-button button button_opacity_strong"
-                type="button"
-                aria-label="Лайк"
-              ></button>
-            </div>
-          </article>
-          <article class="place-card">
-            <img
-              class="place-card__image"
-              src="./images/karachaevsk.jpg"
-              alt="Карачаевск"
-            />
-            <div class="place-card__place-info">
-              <h2 class="place-card__title">Карачаевск</h2>
-              <button
-                class="place-card__like-button button button_opacity_strong"
-                type="button"
-                aria-label="Лайк"
-              ></button>
-            </div>
-          </article>
-          <article class="place-card">
-            <img
-              class="place-card__image"
-              src="./images/rosa_hutor.jpg"
-              alt="Роза Хутор"
-            />
-            <div class="place-card__place-info">
-              <h2 class="place-card__title">Роза Хутор</h2>
-              <button
-                class="place-card__like-button button button_opacity_strong"
-                type="button"
-                aria-label="Лайк"
-              ></button>
-            </div>
-          </article>
-        </section>
+        <section class="places"></section>
       </main>
       <footer class="footer">
         <p class="footer__subtitle">&copy;2020 Mesto Russia</p>
@@ -154,14 +63,14 @@
         <form class="popup__form" name="profileForm">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input
-            class="popup__input popup__input_type_name"
+            class="popup__input popup__input_type_profile-name"
             type="text"
             name="name"
             required
             placeholder="Введите имя"
           />
           <input
-            class="popup__input popup__input_type_descriprion"
+            class="popup__input popup__input_type_profile-descriprion"
             type="text"
             name="description"
             required
@@ -174,8 +83,53 @@
             Сохранить
           </button>
         </form>
+        <form class="popup__form" name="placeForm">
+          <h2 class="popup__title">Новое место</h2>
+          <input
+            class="popup__input popup__input_type_place-name"
+            type="text"
+            name="name"
+            required
+            placeholder="Название"
+          />
+          <input
+            class="popup__input popup__input_type_place-url"
+            type="text"
+            name="description"
+            required
+            placeholder="Ссылка на картинку"
+          />
+          <button
+            class="popup__save-button button button_opacity_lite"
+            type="submit"
+          >
+            Создать
+          </button>
+        </form>
+        <div class="popup__review-image">
+          <img class="popup__image" src="#" alt="#" />
+          <h2 class="popup__image-title">Изображение</h2>
+        </div>
       </div>
     </div>
+    <template class="place-template">
+      <article class="place-card">
+        <img class="place-card__image" />
+        <button
+          class="place-card__trash-button button button_opacity_strong"
+          type="button"
+          aria-label="Удалить"
+        ></button>
+        <div class="place-card__place-info">
+          <h2 class="place-card__title"></h2>
+          <button
+            class="place-card__like-button button button_opacity_strong"
+            type="button"
+            aria-label="Лайк"
+          ></button>
+        </div>
+      </article>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
