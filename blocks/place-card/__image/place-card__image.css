@@ -1,5 +1,6 @@
 .place-card__image {
-  max-height: 282px;
+  height: 282px;
   object-fit: cover;
   object-position: center;
+  cursor: pointer;
 }
