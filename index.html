@@ -53,8 +53,8 @@
         <p class="footer__subtitle">&copy;2020 Mesto Russia</p>
       </footer>
     </div>
-    <div class="popup">
-      <div class="popup__container">
+    <div class="popup popup_type_profile popup_opacity_strong">
+      <div class="popup__container popup__container_type_form">
         <button
           class="popup__close-button button button_opacity_medium"
           type="button"
@@ -83,6 +83,15 @@
             Сохранить
           </button>
         </form>
+      </div>
+    </div>
+    <div class="popup popup_type_place popup_opacity_strong">
+      <div class="popup__container popup__container_type_form">
+        <button
+          class="popup__close-button button button_opacity_medium"
+          type="button"
+          aria-label="Закрыть"
+        ></button>
         <form class="popup__form" name="placeForm">
           <h2 class="popup__title">Новое место</h2>
           <input
@@ -106,10 +115,17 @@
             Создать
           </button>
         </form>
-        <div class="popup__review-image">
-          <img class="popup__image" src="#" alt="#" />
-          <h2 class="popup__image-title">Изображение</h2>
-        </div>
+      </div>
+    </div>
+    <div class="popup popup_type_image popup_opacity_lite">
+      <div class="popup__container popup__container_type_image">
+        <button
+          class="popup__close-button button button_opacity_medium"
+          type="button"
+          aria-label="Закрыть"
+        ></button>
+        <img class="popup__image" src="#" alt="#" />
+        <h2 class="popup__image-title">Изображение</h2>
       </div>
     </div>
     <template class="place-template">
