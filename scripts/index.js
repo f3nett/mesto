@@ -25,57 +25,46 @@ const initialCards = [
   }
 ];
 
-let popup = document.querySelector('.popup');
-let popupContainer = popup.querySelector('.popup__container');
-let profileForm = document.forms.profileForm;
-let placeForm = document.forms.placeForm;
-let imageForm = popup.querySelector('.popup__review-image');
 
-const editProfileBtn = document.querySelector('.profile__edit-button');
-const addPlaceBtn = document.querySelector('.profile__add-button');
-const popupCloseBtn = popup.querySelector('.popup__close-button');
+const popupProfile = document.querySelector('.popup_type_profile');
+const popupPlace = document.querySelector('.popup_type_place');
+const popupImage = document.querySelector('.popup_type_image');
+const profileForm = document.forms.profileForm;
+const placeForm = document.forms.placeForm;
 
-let inputProfileName = popup.querySelector('.popup__input_type_profile-name');
-let inputProfileDescription = popup.querySelector('.popup__input_type_profile-descriprion');
-let inputPlaceName = popup.querySelector('.popup__input_type_place-name');
-let inputPlaceURL = popup.querySelector('.popup__input_type_place-url');
+const buttonEditProfile = document.querySelector('.profile__edit-button');
+const buttonAddPlace = document.querySelector('.profile__add-button');
+const buttonCloseProfile = popupProfile.querySelector('.popup__close-button');
+const buttonClosePlace = popupPlace.querySelector('.popup__close-button');
+const buttonCloseImage = popupImage.querySelector('.popup__close-button');
 
-let profileName = document.querySelector('.profile__name');
-let profileNameDescription= document.querySelector('.profile__description');
-let placeElement = document.querySelector('.places');
-let templateElement = document.querySelector('.place-template');
+const inputProfileName = popupProfile.querySelector('.popup__input_type_profile-name');
+const inputProfileDescription = popupProfile.querySelector('.popup__input_type_profile-descriprion');
+const inputPlaceName = popupPlace.querySelector('.popup__input_type_place-name');
+const inputPlaceURL = popupPlace.querySelector('.popup__input_type_place-url');
+
+const profileName = document.querySelector('.profile__name');
+const profileNameDescription= document.querySelector('.profile__description');
+const placeElement = document.querySelector('.places');
+const templateElement = document.querySelector('.place-template');
 
 
-function openPopup() {
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
-function closePopup() {
-  popup.classList.remove('popup_opacity_lite');
-  popup.classList.remove('popup_opacity_strong');
+function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  profileForm.classList.remove('popup__form_opened');
-  placeForm.classList.remove('popup__form_opened');
-  imageForm.classList.remove('popup__review-image_opened');
-  popupContainer.classList.remove('popup__container_type_form');
-  popupContainer.classList.remove('popup__container_type_image');
-}
-
-function openForm() {
-  openPopup();
-  popup.classList.add('popup_opacity_strong');
-  popupContainer.classList.add('popup__container_type_form');
 }
 
 function openProfileForm() {
-  openForm();
-  profileForm.classList.add('popup__form_opened');
+  openPopup(popupProfile);
   inputProfileName.value = profileName.textContent;
   inputProfileDescription.value = profileNameDescription.textContent;
 }
 
 function openPlaceForm() {
-  openForm();
+  openPopup(popupPlace);
   placeForm.classList.add('popup__form_opened');
 }
 
@@ -83,19 +72,23 @@ function submitProfileForm(event) {
   event.preventDefault();
   profileName.textContent = inputProfileName.value;
   profileNameDescription.textContent = inputProfileDescription.value;
-  closePopup();
+  closePopup(popupProfile);
+}
+
+function createCard(data) {
+  const newCard = templateElement.content.cloneNode(true);
+  newCard.querySelector('.place-card__title').textContent = data.name;
+  newCard.querySelector('.place-card__image').src = data.link;
+  newCard.querySelector('.place-card__image').alt = data.name;
+  setListenerRemove(newCard);
+  setListenerLike(newCard);
+  setListenerReview(newCard);
+  return newCard;
 }
 
 function renderPlace(data) {
-  let newPlace = templateElement.content.cloneNode(true);
-  newPlace.querySelector('.place-card__title').textContent = data.name;
-  newPlace.querySelector('.place-card__image').src = data.link;
-  newPlace.querySelector('.place-card__image').alt = data.name;
-  setListenerRemove(newPlace);
-  setListenerLike(newPlace);
-  setListenerReview(newPlace);
+  const newPlace = createCard(data)
   placeElement.prepend(newPlace);
-  
 }
 
 function submitPlaceForm(event) {
@@ -104,12 +97,11 @@ function submitPlaceForm(event) {
   const newPlaceURL = inputPlaceURL.value;
   renderPlace({link: newPlaceURL, name: newPlaceName});
   event.target.reset();
-  closePopup();
+  closePopup(popupPlace);
 }
 
 function removePlace(event) {
-  const place = event.target.closest('.place-card');
-  place.remove();
+  event.target.closest('.place-card').remove();
 }
 
 function setListenerRemove(place) {
@@ -125,13 +117,10 @@ function setListenerLike(place) {
 }
 
 function openImage(event) {
-  openPopup();
-  popup.classList.add('popup_opacity_lite');
-  popupContainer.classList.add('popup__container_type_image');
-  imageForm.classList.add('popup__review-image_opened');
-  imageForm.querySelector('.popup__image-title').textContent = event.target.alt;
-  imageForm.querySelector('.popup__image').src = event.target.src;
-  imageForm.querySelector('.popup__image').alt = event.target.alt;
+  openPopup(popupImage);
+  popupImage.querySelector('.popup__image-title').textContent = event.target.alt;
+  popupImage.querySelector('.popup__image').src = event.target.src;
+  popupImage.querySelector('.popup__image').alt = event.target.alt;
 }
 
 function setListenerReview(image) {
@@ -140,8 +129,10 @@ function setListenerReview(image) {
 
 initialCards.map(renderPlace);
 
-editProfileBtn.addEventListener('click', openProfileForm);
-addPlaceBtn.addEventListener('click', openPlaceForm);
-popupCloseBtn.addEventListener('click', closePopup);
+buttonEditProfile.addEventListener('click', openProfileForm);
+buttonAddPlace.addEventListener('click', openPlaceForm);
+buttonCloseProfile.addEventListener('click', () => closePopup(popupProfile));
+buttonClosePlace.addEventListener('click', () => closePopup(popupPlace));
+buttonCloseImage.addEventListener('click', () => closePopup(popupImage));
 profileForm.addEventListener('submit', submitProfileForm);
 placeForm.addEventListener('submit', submitPlaceForm);
