@@ -63,11 +63,6 @@ function openProfileForm() {
   inputProfileDescription.value = profileNameDescription.textContent;
 }
 
-function openPlaceForm() {
-  openPopup(popupPlace);
-  placeForm.classList.add('popup__form_opened');
-}
-
 function submitProfileForm(event) {
   event.preventDefault();
   profileName.textContent = inputProfileName.value;
@@ -130,7 +125,7 @@ function setListenerReview(image) {
 initialCards.map(renderPlace);
 
 buttonEditProfile.addEventListener('click', openProfileForm);
-buttonAddPlace.addEventListener('click', openPlaceForm);
+buttonAddPlace.addEventListener('click', () => openPopup(popupPlace));
 buttonCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 buttonClosePlace.addEventListener('click', () => closePopup(popupPlace));
 buttonCloseImage.addEventListener('click', () => closePopup(popupImage));
