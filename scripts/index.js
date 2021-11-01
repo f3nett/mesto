@@ -51,10 +51,12 @@ const templateElement = document.querySelector('.place-template');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', () => escapePopup(event, popup));
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', () => escapePopup(event, popup));
 }
 
 function openProfileForm() {
@@ -122,6 +124,19 @@ function setListenerReview(image) {
   image.querySelector('.place-card__image').addEventListener('click', openImage);
 }
 
+function clickOverlay(event, popup) {
+  if (event.target === event.currentTarget) { 
+    closePopup(popup);
+  }
+}
+
+function escapePopup(event, popup) {
+  if (event.key === 'Escape') {
+    closePopup(popup);
+  }
+}
+
+
 initialCards.map(renderPlace);
 
 buttonEditProfile.addEventListener('click', openProfileForm);
@@ -130,4 +145,7 @@ buttonCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 buttonClosePlace.addEventListener('click', () => closePopup(popupPlace));
 buttonCloseImage.addEventListener('click', () => closePopup(popupImage));
 profileForm.addEventListener('submit', submitProfileForm);
-placeForm.addEventListener('submit', submitPlaceForm);
+placeForm.addEventListener('submit', submitPlaceForm); 
+popupProfile.addEventListener('click', () => clickOverlay(event, popupProfile));
+popupPlace.addEventListener('click', () => clickOverlay(event, popupPlace));
+popupImage.addEventListener('click', () => clickOverlay(event, popupImage));
