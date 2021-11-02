@@ -9,7 +9,7 @@ const config = {
 
 // Показывать спан с текстом ошибки
 const showInputError = (formElement, inputElement, errorMessage, validationConfig) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(validationConfig.inputErrorClass);
     errorElement.textContent = errorMessage;
     errorElement.classList.add(validationConfig.errorClass);
@@ -17,7 +17,7 @@ const showInputError = (formElement, inputElement, errorMessage, validationConfi
 
 // Скрывать спан с текстом ошибки
 const hideInputError = (formElement, inputElement, validationConfig) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(validationConfig.inputErrorClass);
     errorElement.classList.remove(validationConfig.errorClass);
     errorElement.textContent = '';
