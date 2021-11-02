@@ -33,17 +33,17 @@ const isValid = (formElement, inputElement, validationConfig) => {
 }
 
 // Проверка валидности всех инпутов формы
-const hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
+const hasInvalidInput = (inputs) => {
+    return inputs.some((inputElement) => {
         // Если поле не валидно, колбэк вернёт true
         return !inputElement.validity.valid;
     });
 }
 
 // Поведение кнопки при проверке инпутов на валидность
-const toggleButtonState = (inputList, buttonElement, validationConfig) => {
+const toggleButtonState = (inputs, buttonElement, validationConfig) => {
     // Если есть хотя бы один невалидный инпут
-    if (hasInvalidInput(inputList)) {
+    if (hasInvalidInput(inputs)) {
         // сделать кнопку неактивной
         buttonElement.classList.add(validationConfig.inactiveButtonClass);
         buttonElement.disabled = true;
@@ -56,25 +56,25 @@ const toggleButtonState = (inputList, buttonElement, validationConfig) => {
 
 // Ввод в инпуты
 const setEventListeners = (formElement, validationConfig) => {
-    const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
+    const inputs = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
     // Кнопка отправки
     const buttonElement = formElement.querySelector(validationConfig.submitButtonSelector);
     // Вызов toggleButtonState, чтобы не ждать ввода данных в поля
-    toggleButtonState(inputList, buttonElement, validationConfig);
+    toggleButtonState(inputs, buttonElement, validationConfig);
 
-    inputList.forEach((inputElement) => {
+    inputs.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
         isValid(formElement, inputElement, validationConfig);
-        toggleButtonState(inputList, buttonElement, validationConfig);
+        toggleButtonState(inputs, buttonElement, validationConfig);
         });
     });
 }
 
 // Валидация при отправке форм
 const enableValidation = (validationConfig) => {
-    const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
+    const forms = Array.from(document.querySelectorAll(validationConfig.formSelector));
 
-    formList.forEach((formElement) => {
+    forms.forEach((formElement) => {
         formElement.addEventListener('submit', (evt) => {
             // Отмена стандартного поведения
             evt.preventDefault();
