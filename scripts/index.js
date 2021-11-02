@@ -63,6 +63,7 @@ function openProfileForm() {
   openPopup(popupProfile);
   inputProfileName.value = profileName.textContent;
   inputProfileDescription.value = profileNameDescription.textContent;
+  enableValidation(config);
 }
 
 function submitProfileForm(event) {

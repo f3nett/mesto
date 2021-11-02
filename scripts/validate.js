@@ -26,17 +26,17 @@ const hideInputError = (formElement, inputElement, validationConfig) => {
 // Поведение спана с текстом ошибки при проверке на валидность
 const isValid = (formElement, inputElement, validationConfig) => {
     if (!inputElement.validity.valid) {
-      showInputError(formElement, inputElement, inputElement.validationMessage, validationConfig);
+        showInputError(formElement, inputElement, inputElement.validationMessage, validationConfig);
     } else {
-      hideInputError(formElement, inputElement, validationConfig);
+        hideInputError(formElement, inputElement, validationConfig);
     }
 }
 
 // Проверка валидности всех инпутов формы
 const hasInvalidInput = (inputList) => {
     return inputList.some((inputElement) => {
-      // Если поле не валидно, колбэк вернёт true
-      return !inputElement.validity.valid;
+        // Если поле не валидно, колбэк вернёт true
+        return !inputElement.validity.valid;
     });
 }
 
@@ -44,13 +44,13 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement, validationConfig) => {
     // Если есть хотя бы один невалидный инпут
     if (hasInvalidInput(inputList)) {
-      // сделать кнопку неактивной
-      buttonElement.classList.add(validationConfig.inactiveButtonClass);
-      buttonElement.disabled = true;
+        // сделать кнопку неактивной
+        buttonElement.classList.add(validationConfig.inactiveButtonClass);
+        buttonElement.disabled = true;
     } else {
-      // иначе сделать кнопку активной
-      buttonElement.classList.remove(validationConfig.inactiveButtonClass);
-      buttonElement.disabled = false;
+        // иначе сделать кнопку активной
+        buttonElement.classList.remove(validationConfig.inactiveButtonClass);
+        buttonElement.disabled = false;
     }
 }
 
@@ -75,11 +75,11 @@ const enableValidation = (validationConfig) => {
     const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
 
     formList.forEach((formElement) => {
-      formElement.addEventListener('submit', (evt) => {
-        // Отмена стандартного поведения
-        evt.preventDefault();
-      });
-      setEventListeners(formElement, validationConfig);
+        formElement.addEventListener('submit', (evt) => {
+            // Отмена стандартного поведения
+            evt.preventDefault();
+        });
+        setEventListeners(formElement, validationConfig);
     });
 }
 
