@@ -4,7 +4,7 @@ const config = {
     submitButtonSelector: '.popup__save-button',
     inactiveButtonClass: 'popup__save-button_inactive',
     inputErrorClass: 'popup__input-error',
-    errorClass: 'popup__form-error_active'
+    errorClass: 'popup__error_active'
 }
 
 // Показывать спан с текстом ошибки
@@ -64,7 +64,7 @@ const setEventListeners = (formElement, validationConfig) => {
 
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
-        isValid(formElement, inputElement, validationConfig)
+        isValid(formElement, inputElement, validationConfig);
         toggleButtonState(inputList, buttonElement, validationConfig);
         });
     });

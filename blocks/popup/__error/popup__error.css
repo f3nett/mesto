@@ -1,4 +1,4 @@
-.popup__form-error {
+.popup__error {
   margin-top: 5px;
   font-style: normal;
   font-weight: normal;
@@ -10,7 +10,7 @@
 }
 
 @media (min-width: 1280px) {
-  .popup__form-error {
+  .popup__error {
     max-width: 358px;
   }
 }
