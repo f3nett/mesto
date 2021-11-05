@@ -41,7 +41,9 @@ const hasInvalidInput = (inputs) => {
 }
 
 // Поведение кнопки при проверке инпутов на валидность
-const toggleButtonState = (inputs, buttonElement, validationConfig) => {
+const toggleButtonState = (formElement, validationConfig) => {
+    const inputs = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
+    const buttonElement = formElement.querySelector(validationConfig.submitButtonSelector);
     // Если есть хотя бы один невалидный инпут
     if (hasInvalidInput(inputs)) {
         // сделать кнопку неактивной
@@ -55,17 +57,15 @@ const toggleButtonState = (inputs, buttonElement, validationConfig) => {
 }
 
 // Ввод в инпуты
-const setEventListeners = (formElement, validationConfig) => {
+const setEventListeners = (formElement, validationConfig) => { 
     const inputs = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
-    // Кнопка отправки
-    const buttonElement = formElement.querySelector(validationConfig.submitButtonSelector);
     // Вызов toggleButtonState, чтобы не ждать ввода данных в поля
-    toggleButtonState(inputs, buttonElement, validationConfig);
+    toggleButtonState(formElement, validationConfig);
 
     inputs.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
         isValid(formElement, inputElement, validationConfig);
-        toggleButtonState(inputs, buttonElement, validationConfig);
+        toggleButtonState(formElement, validationConfig);
         });
     });
 }
@@ -80,6 +80,14 @@ const enableValidation = (validationConfig) => {
             evt.preventDefault();
         });
         setEventListeners(formElement, validationConfig);
+    });s
+}
+
+// Очистка ошибок ввода формы
+const clearValidationErrors = (formElement, validationConfig) => {
+    const inputs = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
+    inputs.forEach((inputElement) => {
+        hideInputError(formElement, inputElement, validationConfig);
     });
 }
 
