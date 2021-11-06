@@ -80,7 +80,7 @@ const enableValidation = (validationConfig) => {
             evt.preventDefault();
         });
         setEventListeners(formElement, validationConfig);
-    });s
+    });
 }
 
 // Очистка ошибок ввода формы

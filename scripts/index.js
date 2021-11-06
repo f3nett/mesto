@@ -60,13 +60,14 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
-  clearValidationErrors(popup, config);
 }
 
 function openProfileForm() {
   openPopup(popupProfile);
   inputProfileName.value = profileName.textContent;
   inputProfileDescription.value = profileNameDescription.textContent;
+  //очистка ошибок инпутов
+  clearValidationErrors(popupProfile, config);
   //активация кнопки после присваивания значений инпутам
   toggleButtonState(profileForm, config);
 }
