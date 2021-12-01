@@ -1,34 +1,8 @@
+import initialCards from "./initialCards.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-export const config = {
+const config = {
   popupSelector: '.popup',
   popupProfileSelector: '.popup_type_profile',
   popupPlaceSelector: '.popup_type_place',
@@ -36,10 +10,6 @@ export const config = {
   editButtonSelector: '.profile__edit-button',
   addButtonSelector: '.profile__add-button',
   closeButtonClass: 'popup__close-button',
-  cardButtonSelector: '.place-card__image',
-  trashButtonSelector: '.place-card__trash-button',
-  likeButtonSelector: '.place-card__like-button',
-  activeLikeButtonClass: 'place-card__like-button_active',
   profileInputNameSelector: '.popup__input_type_profile-name',
   profileInputDescriptionSelector: '.popup__input_type_profile-descriprion',
   placeInputNameSelector: '.popup__input_type_place-name',
@@ -49,12 +19,22 @@ export const config = {
   cardListSelector: '.places',
   openedPopupClass: 'popup_opened',
   openedPopupSelector: '.popup_opened',
-  cardTemplateSelector: '.place-template',
+  cardTemplateSelector: '.place-template'
+}
+
+const cardConfig = {
   placeCardSelector: '.place-card',
-  cardImageSelector: '.place-card__image',
-  cardTitleSelector: '.place-card__title',
-  viewSelector: '.popup__image',
+  likeButtonSelector: '.place-card__like-button',
+  activeLikeButtonClass: 'place-card__like-button_active',
   viewTitleSelector: '.popup__image-title',
+  viewSelector: '.popup__image',
+  trashButtonSelector: '.place-card__trash-button',
+  cardButtonSelector: '.place-card__image',
+  cardTitleSelector: '.place-card__title',
+  cardImageSelector: '.place-card__image'
+}
+
+const validateConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save-button',
@@ -65,6 +45,7 @@ export const config = {
 
 const popupProfile = document.querySelector(config.popupProfileSelector);
 const popupPlace = document.querySelector(config.popupPlaceSelector);
+const popupImage = document.querySelector(config.popupImageSelector);
 const profileForm = document.forms.profileForm;
 const placeForm = document.forms.placeForm;
 
@@ -73,12 +54,15 @@ const buttonAddPlace = document.querySelector(config.addButtonSelector);
 
 const inputProfileName = popupProfile.querySelector(config.profileInputNameSelector);
 const inputProfileDescription = popupProfile.querySelector(config.profileInputDescriptionSelector);
+const inputPlaceName = popupPlace.querySelector(config.placeInputNameSelector);
+const inputPlaceURL = popupPlace.querySelector(config.placeInputURLSelector);
+
 const profileName = document.querySelector(config.profileNameSelector);
 const profileNameDescription= document.querySelector(config.profileDescriptionSelector);
 const placeElement = document.querySelector(config.cardListSelector);
 
-const profileValidator = new FormValidator(config, profileForm);
-const placeValidator = new FormValidator(config, placeForm);
+const profileValidator = new FormValidator(validateConfig, profileForm);
+const placeValidator = new FormValidator(validateConfig, placeForm);
 
 function closeByEscape(event) {
   if (event.key === 'Escape') {
@@ -87,7 +71,7 @@ function closeByEscape(event) {
   }
 }
 
-export function openPopup(popup) {
+function openPopup(popup) {
   popup.classList.add(config.openedPopupClass);
   document.addEventListener('keydown', closeByEscape);
 }
@@ -98,14 +82,19 @@ function closePopup(popup) {
 }
 
 function openProfileForm() {
-  openPopup(popupProfile);
   inputProfileName.value = profileName.textContent;
   inputProfileDescription.value = profileNameDescription.textContent;
   //очистка ошибок инпутов
   profileValidator.clearValidationErrors();
-
   //активация кнопки после присваивания значений инпутам
   profileValidator.toggleButtonState();
+  openPopup(popupProfile);
+}
+
+function openPlaceForm() {
+  //очистка ошибок инпутов
+  placeValidator.clearValidationErrors();
+  openPopup(popupPlace);
 }
 
 function submitProfileForm(event) {
@@ -123,8 +112,8 @@ function renderPlace(data) {
 
 function submitPlaceForm(event) {
   event.preventDefault();
-  const newPlaceName = popupPlace.querySelector(config.placeInputNameSelector).value;
-  const newPlaceURL = popupPlace.querySelector(config.placeInputURLSelector).value;
+  const newPlaceName = inputPlaceName.value;
+  const newPlaceURL = inputPlaceURL.value;
   renderPlace({link: newPlaceURL, name: newPlaceName});
   event.target.reset();
   closePopup(popupPlace);
@@ -136,7 +125,7 @@ function submitPlaceForm(event) {
 initialCards.map(renderPlace);
 
 buttonEditProfile.addEventListener('click', openProfileForm);
-buttonAddPlace.addEventListener('click', () => openPopup(popupPlace));
+buttonAddPlace.addEventListener('click', openPlaceForm);
 profileForm.addEventListener('submit', submitProfileForm);
 placeForm.addEventListener('submit', submitPlaceForm);
 
@@ -145,7 +134,7 @@ const popups = document.querySelectorAll(config.popupSelector);
 popups.forEach((popup) => {
     popup.addEventListener('click', (event) => {
         if (event.target.classList.contains(config.openedPopupClass)) {
-            closePopup(popup);
+          closePopup(popup);
         }
         if (event.target.classList.contains(config.closeButtonClass)) {
           closePopup(popup);
@@ -155,3 +144,5 @@ popups.forEach((popup) => {
 
 profileValidator.enableValidation();
 placeValidator.enableValidation();
+
+export {cardConfig, validateConfig, popupImage, openPopup};

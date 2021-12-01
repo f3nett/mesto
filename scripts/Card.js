@@ -1,5 +1,4 @@
-import { openPopup } from "./index.js";
-import { config } from "./index.js";
+import { popupImage, openPopup, cardConfig as config } from "./index.js";
 
 class Card {
     constructor (data, cardSelector) {
@@ -27,11 +26,10 @@ class Card {
     }
 
     _openCardImage() {
-        const popupImage = document.querySelector(config.popupImageSelector);
-        openPopup(popupImage);
         popupImage.querySelector(config.viewTitleSelector).textContent = this._name;
         popupImage.querySelector(config.viewSelector).src = this._link;
         popupImage.querySelector(config.viewSelector).alt = this._name;
+        openPopup(popupImage);
     } 
 
     _setEventListeners() {
