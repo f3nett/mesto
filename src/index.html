@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Mесто</title>
   </head>
   <body class="page">
@@ -16,7 +15,7 @@
           <div class="profile__block">
             <img
               class="profile__avatar"
-              src="./images/avatar.jpg"
+              src="<%=require('./images/avatar.jpg')%>"
               alt="Аватар"
             />
             <div class="profile__info">
@@ -28,7 +27,7 @@
                 >
                   <img
                     class="profile__edit-icon"
-                    src="./images/logo/edit_icon.svg"
+                    src="<%=require('./images/logo/edit_icon.svg')%>"
                     alt="Редактировать"
                   />
                 </button>
@@ -42,7 +41,7 @@
           >
             <img
               class="profile__add-icon"
-              src="./images/logo/add_button.svg"
+              src="<%=require('./images/logo/add_button.svg')%>"
               alt="Добавить"
             />
           </button>
@@ -160,6 +159,5 @@
         </div>
       </article>
     </template>
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>

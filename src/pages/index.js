@@ -1,3 +1,4 @@
+import '../pages/index.css';
 import initialCards from "../scripts/utils/initialCards.js";
 import { indexConfig as config, validateConfig } from "../scripts/utils/constants.js";
 import Card from "../scripts/components/Card.js";
