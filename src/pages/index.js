@@ -17,12 +17,20 @@ const profileValidator = new FormValidator(validateConfig, document.forms.profil
 const placeValidator = new FormValidator(validateConfig, document.forms.placeForm);
 
 const user = new UserInfo(indexConfig.profileNameSelector, indexConfig.profileDescriptionSelector);
-
 const popupImage = new PopupWithImage(indexConfig.popupImageSelector, popupConfig);
 
 const popupProfile = new PopupWithForm(indexConfig.popupProfileSelector, (userData) => {
   user.setUserInfo(userData);
 }, popupConfig);
+
+//функция генерации новой карточки
+function generateCard(cardItem) {
+  const card = new Card(cardItem, cardConfig, () => {
+  popupImage.open(cardItem);
+});
+const newPlace = card.createCard();
+return newPlace;
+}
 
 const popupPlace = new PopupWithForm(indexConfig.popupPlaceSelector, (cardItem) => {
   const newPlace = generateCard(cardItem);
@@ -41,15 +49,6 @@ indexConfig.cardListSelector
 ); 
 
 cardsList.renderItem();
-
-//генерация новой карточки
-function generateCard(cardItem) {
-  const card = new Card(cardItem, cardConfig, () => {
-  popupImage.open(cardItem);
-});
-const newPlace = card.createCard();
-return newPlace;
-}
 
 //кнопка открытия формы редактирования профиля
 buttonEditProfile.addEventListener('click', () => {
