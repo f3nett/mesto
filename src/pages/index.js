@@ -1,6 +1,5 @@
 import '../pages/index.css';
-import initialCards from "../scripts/utils/initialCards.js";
-import { indexConfig as config, validateConfig } from "../scripts/utils/constants.js";
+import { initialCards, indexConfig, cardConfig, popupConfig, validateConfig } from "../scripts/utils/constants.js";
 import Card from "../scripts/components/Card.js";
 import Section from "../scripts/components/Section.js";
 import UserInfo from "../scripts/components/UserInfo.js";
@@ -8,46 +7,49 @@ import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import FormValidator from "../scripts/components/FormValidator.js";
 
-const profile = document.querySelector(config.popupProfileSelector);
-const inputProfileName = profile.querySelector(config.profileInputNameSelector);
-const inputProfileDescription = profile.querySelector(config.profileInputDescriptionSelector);
-const buttonEditProfile = document.querySelector(config.editButtonSelector);
-const buttonAddPlace = document.querySelector(config.addButtonSelector);
+const profile = document.querySelector(indexConfig.popupProfileSelector);
+const inputProfileName = profile.querySelector(indexConfig.profileInputNameSelector);
+const inputProfileDescription = profile.querySelector(indexConfig.profileInputDescriptionSelector);
+const buttonEditProfile = document.querySelector(indexConfig.editButtonSelector);
+const buttonAddPlace = document.querySelector(indexConfig.addButtonSelector);
 
 const profileValidator = new FormValidator(validateConfig, document.forms.profileForm);
 const placeValidator = new FormValidator(validateConfig, document.forms.placeForm);
 
-const user = new UserInfo(config.profileNameSelector, config.profileDescriptionSelector);
+const user = new UserInfo(indexConfig.profileNameSelector, indexConfig.profileDescriptionSelector);
 
-const popupImage = new PopupWithImage(config.popupImageSelector);
+const popupImage = new PopupWithImage(indexConfig.popupImageSelector, popupConfig);
 
-const popupProfile = new PopupWithForm(config.popupProfileSelector, (userData) => {
+const popupProfile = new PopupWithForm(indexConfig.popupProfileSelector, (userData) => {
   user.setUserInfo(userData);
-});
+}, popupConfig);
 
-const popupPlace = new PopupWithForm(config.popupPlaceSelector, (cardItem) => {
-  const card = new Card(cardItem, config.cardTemplateSelector, () => {
-    popupImage.open(cardItem);
-  });
-  const newPlace = card.createCard();
+const popupPlace = new PopupWithForm(indexConfig.popupPlaceSelector, (cardItem) => {
+  const newPlace = generateCard(cardItem);
   cardsList.addItem(newPlace);
-});
+}, popupConfig);
 
 //рендеринг стартового набора карточек
 const cardsList = new Section({
   items: initialCards,
   renderer: (cardItem) => {
-    const card = new Card(cardItem, config.cardTemplateSelector, () => {
-      popupImage.open(cardItem);
-    });
-    const newPlace = card.createCard();
+    const newPlace = generateCard(cardItem);
     cardsList.addItem(newPlace);
   },
 },
-config.cardListSelector
+indexConfig.cardListSelector
 ); 
 
 cardsList.renderItem();
+
+//генерация новой карточки
+function generateCard(cardItem) {
+  const card = new Card(cardItem, cardConfig, () => {
+  popupImage.open(cardItem);
+});
+const newPlace = card.createCard();
+return newPlace;
+}
 
 //кнопка открытия формы редактирования профиля
 buttonEditProfile.addEventListener('click', () => {

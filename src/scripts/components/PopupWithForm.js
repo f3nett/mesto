@@ -1,13 +1,13 @@
 import Popup from "./Popup.js";
-import { popupConfig as config } from "../utils/constants.js";
 
 class PopupWithForm extends Popup {
-    constructor(popupSelector, formSubmit) {
-        super(popupSelector);
+    constructor(popupSelector, formSubmit, config) {
+        super(popupSelector, config);
         this._popup = document.querySelector(popupSelector);
         this._popupForm = this._popup.querySelector(config.formSelector);
         this._formSubmit = formSubmit;
         this._inputList = this._popup.querySelectorAll(config.inputSelector);
+        this._handleSubmit = this._handleSubmit.bind(this);
     }
 
     _getInputValues() {
@@ -19,14 +19,16 @@ class PopupWithForm extends Popup {
         return this._inputValues;
     }
 
+    _handleSubmit(evt) {
+        evt.preventDefault();
+        this._formSubmit(this._getInputValues());
+        this.close();
+    }
+
     setEventListeners() {
     //добавляет не только обработчик клика иконке закрытия, но и обработчик сабмита формы
         super.setEventListeners();
-        this._popup.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-            this._formSubmit(this._getInputValues());
-            this.close();
-        });
+        this._popup.addEventListener('submit', this._handleSubmit);
     }
 
     close() {

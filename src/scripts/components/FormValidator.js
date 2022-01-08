@@ -6,7 +6,8 @@ class FormValidator {
         this._inactiveButtonClass = config.inactiveButtonClass;
         this._inputErrorClass = config.inputErrorClass;
         this._errorClass = config.errorClass;
-        this._formElement = formElement
+        this._formElement = formElement;
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     }
 
     // Показывать спан с текстом ошибки
@@ -44,10 +45,9 @@ class FormValidator {
 
     // Поведение кнопки при проверке инпутов на валидность
     toggleButtonState = () => {
-        const inputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
         // Если есть хотя бы один невалидный инпут
-        if (this._hasInvalidInput(inputs)) {
+        if (this._hasInvalidInput(this._inputList)) {
             // сделать кнопку неактивной
             buttonElement.classList.add(this._inactiveButtonClass);
             buttonElement.disabled = true;
@@ -60,11 +60,10 @@ class FormValidator {
 
     // Ввод в инпуты
     _setEventListeners () { 
-        const inputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         // Вызов toggleButtonState, чтобы не ждать ввода данных в поля
         this.toggleButtonState();
 
-        inputs.forEach((inputElement) => {
+        this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
             this._isValid(inputElement);
             this.toggleButtonState();
@@ -87,8 +86,7 @@ class FormValidator {
 
     // Очистка ошибок ввода формы
     clearValidationErrors () {
-        const inputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-        inputs.forEach((inputElement) => {
+        this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement);
         });
     }

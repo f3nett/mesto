@@ -1,3 +1,30 @@
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
 const indexConfig = {
   popupProfileSelector: '.popup_type_profile',
   popupPlaceSelector: '.popup_type_place',
@@ -8,8 +35,7 @@ const indexConfig = {
   profileInputDescriptionSelector: '.popup__input_type_profile-descriprion',
   profileNameSelector: '.profile__name',
   profileDescriptionSelector: '.profile__description',
-  cardListSelector: '.places',
-  cardTemplateSelector: '.place-template'
+  cardListSelector: '.places'
 }
   
 const cardConfig = {
@@ -19,7 +45,8 @@ const cardConfig = {
   trashButtonSelector: '.place-card__trash-button',
   cardButtonSelector: '.place-card__image',
   cardTitleSelector: '.place-card__title',
-  cardImageSelector: '.place-card__image'
+  cardImageSelector: '.place-card__image',
+  cardTemplateSelector: '.place-template'
 }
 
 const popupConfig = {
@@ -40,4 +67,4 @@ const validateConfig = {
   errorClass: 'popup__error_active'
 }
 
-export {indexConfig, cardConfig, popupConfig, validateConfig};
+export {initialCards, indexConfig, cardConfig, popupConfig, validateConfig};
