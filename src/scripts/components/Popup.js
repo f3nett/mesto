@@ -25,7 +25,6 @@ class Popup {
 
     open() {
         this._popup.classList.add(this._openedPopupClass);
-        this.setEventListeners();
         document.addEventListener('keydown', this._handleEscClose);
     }
 

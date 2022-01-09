@@ -15,13 +15,15 @@ const buttonAddPlace = document.querySelector(indexConfig.addButtonSelector);
 
 const profileValidator = new FormValidator(validateConfig, document.forms.profileForm);
 const placeValidator = new FormValidator(validateConfig, document.forms.placeForm);
-
 const user = new UserInfo(indexConfig.profileNameSelector, indexConfig.profileDescriptionSelector);
+
 const popupImage = new PopupWithImage(indexConfig.popupImageSelector, popupConfig);
+popupImage.setEventListeners();
 
 const popupProfile = new PopupWithForm(indexConfig.popupProfileSelector, (userData) => {
   user.setUserInfo(userData);
 }, popupConfig);
+popupProfile.setEventListeners();
 
 //функция генерации новой карточки
 function generateCard(cardItem) {
@@ -36,6 +38,7 @@ const popupPlace = new PopupWithForm(indexConfig.popupPlaceSelector, (cardItem) 
   const newPlace = generateCard(cardItem);
   cardsList.addItem(newPlace);
 }, popupConfig);
+popupPlace.setEventListeners();
 
 //рендеринг стартового набора карточек
 const cardsList = new Section({
