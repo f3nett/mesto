@@ -1,6 +1,6 @@
 # Проект: Место
 
-[Ссылка на GitHub Pages](https://f3nett.github.io/mesto/index.html)
+[Ссылка на GitHub Pages](https://f3nett.github.io/mesto)
 
 ## Описание проекта
 
