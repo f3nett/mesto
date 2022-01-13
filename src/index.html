@@ -13,11 +13,13 @@
       <main class="content">
         <section class="profile">
           <div class="profile__block">
-            <img
-              class="profile__avatar"
-              src="<%=require('./images/avatar.jpg')%>"
-              alt="Аватар"
-            />
+            <div class="profile__avatar-area">
+              <img
+                class="profile__avatar"
+                src="<%=require('./images/avatar.jpg')%>"
+                alt="Аватар"
+              />
+            </div>
             <div class="profile__info">
               <div class="profile__name-section">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -84,7 +86,7 @@
           />
           <span id="input_descriprion-error" class="popup__error"></span>
           <button
-            class="popup__save-button button button_opacity_lite"
+            class="popup__submit-button button button_opacity_lite"
             type="submit"
           >
             Сохранить
@@ -122,7 +124,7 @@
           />
           <span id="input_url-error" class="popup__error"></span>
           <button
-            class="popup__save-button button button_opacity_lite"
+            class="popup__submit-button button button_opacity_lite"
             type="submit"
           >
             Создать
@@ -141,6 +143,51 @@
         <h2 class="popup__image-title">Изображение</h2>
       </div>
     </div>
+    <div class="popup popup_type_confirmation popup_opacity_lite">
+      <div class="popup__container popup__container_type_confirmation">
+        <button
+          class="popup__close-button button button_opacity_medium"
+          type="button"
+          aria-label="Закрыть"
+        ></button>
+        <form class="popup__form" name="confirmForm" novalidate>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button
+            class="popup__submit-button button button_opacity_lite"
+            type="submit"
+          >
+            Да
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_avatar popup_opacity_lite popup_opened">
+      <div class="popup__container popup__container_type_avatar">
+        <button
+          class="popup__close-button button button_opacity_medium"
+          type="button"
+          aria-label="Закрыть"
+        ></button>
+        <form class="popup__form" name="avatarForm" novalidate>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <input
+            id="input_avatar"
+            class="popup__input popup__input_type_avatar-link"
+            type="url"
+            name="avatar-link"
+            required
+            placeholder="https://somewebsite.com/someimage.jpg"
+          />
+          <span id="input_link-error" class="popup__error"></span>
+          <button
+            class="popup__submit-button button button_opacity_lite"
+            type="submit"
+          >
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
     <template class="place-template">
       <article class="place-card">
         <img class="place-card__image" />
@@ -151,11 +198,14 @@
         ></button>
         <div class="place-card__place-info">
           <h2 class="place-card__title"></h2>
-          <button
-            class="place-card__like-button button button_opacity_strong"
-            type="button"
-            aria-label="Лайк"
-          ></button>
+          <div class="place-card__like-info">
+            <button
+              class="place-card__like-button button button_opacity_strong"
+              type="button"
+              aria-label="Лайк"
+            ></button>
+            <p class="place-card__like-counter"></p>
+          </div>
         </div>
       </article>
     </template>

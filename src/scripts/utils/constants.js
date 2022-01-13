@@ -61,8 +61,8 @@ const popupConfig = {
 const validateConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save-button',
-  inactiveButtonClass: 'popup__save-button_inactive',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_inactive',
   inputErrorClass: 'popup__input-error',
   errorClass: 'popup__error_active'
 }
