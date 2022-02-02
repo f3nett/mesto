@@ -9,6 +9,7 @@ class PopupWithImage extends Popup {
     }
     
     open(card) {
+    //открыть попап с заданной карточкой
         this._popup.querySelector(this._viewTitleSelector).textContent = card.name;
         this._popup.querySelector(this._viewSelector).src = card.link;
         this._popup.querySelector(this._viewSelector).alt = card.name;

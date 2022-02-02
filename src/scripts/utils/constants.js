@@ -1,40 +1,17 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const indexConfig = {
   popupProfileSelector: '.popup_type_profile',
   popupPlaceSelector: '.popup_type_place',
   popupImageSelector: '.popup_type_image',
+  popupAvatarSelector: '.popup_type_avatar',
+  popupRemoveSelector: '.popup_type_confirmation',
   editButtonSelector: '.profile__edit-button',
   addButtonSelector: '.profile__add-button',
   profileInputNameSelector: '.popup__input_type_profile-name',
   profileInputDescriptionSelector: '.popup__input_type_profile-descriprion',
+  profileInputAvatarSelector: '.popup__input_type_avatar-link',
   profileNameSelector: '.profile__name',
   profileDescriptionSelector: '.profile__description',
+  profilePhotoSelector: '.profile__avatar',
   cardListSelector: '.places'
 }
   
@@ -46,16 +23,20 @@ const cardConfig = {
   cardButtonSelector: '.place-card__image',
   cardTitleSelector: '.place-card__title',
   cardImageSelector: '.place-card__image',
-  cardTemplateSelector: '.place-template'
+  cardTemplateSelector: '.place-template',
+  likeCounterSelector: '.place-card__like-counter',
+  activeTrashBtnClass: 'place-card__trash-button_active'
 }
 
 const popupConfig = {
   closeButtonClass: 'popup__close-button',
   openedPopupClass: 'popup_opened',
+  removePopupClass: 'popup_type_confirmation',
   inputSelector: '.popup__input',
   formSelector: '.popup__form',
   viewTitleSelector: '.popup__image-title',
-  viewSelector: '.popup__image'
+  viewSelector: '.popup__image',
+  submitSelector: '.popup__submit-button'
 }
 
 const validateConfig = {
@@ -67,4 +48,4 @@ const validateConfig = {
   errorClass: 'popup__error_active'
 }
 
-export {initialCards, indexConfig, cardConfig, popupConfig, validateConfig};
+export {indexConfig, cardConfig, popupConfig, validateConfig};

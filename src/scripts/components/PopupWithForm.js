@@ -5,6 +5,7 @@ class PopupWithForm extends Popup {
         super(popupSelector, config);
         this._popup = document.querySelector(popupSelector);
         this._popupForm = this._popup.querySelector(config.formSelector);
+        this._submitBtn = this._popup.querySelector(config.submitSelector);
         this._formSubmit = formSubmit;
         this._inputList = this._popup.querySelectorAll(config.inputSelector);
         this._handleSubmit = this._handleSubmit.bind(this);
@@ -20,13 +21,15 @@ class PopupWithForm extends Popup {
     }
 
     _handleSubmit(evt) {
+    //функция саблита формы
         evt.preventDefault();
+        this.setLoadingStatus(true);
         this._formSubmit(this._getInputValues());
         this.close();
     }
 
     setEventListeners() {
-    //добавляет не только обработчик клика иконке закрытия, но и обработчик сабмита формы
+    //добавляет обработчик сабмита формы
         super.setEventListeners();
         this._popup.addEventListener('submit', this._handleSubmit);
     }
@@ -36,6 +39,17 @@ class PopupWithForm extends Popup {
         super.close();
         this._popupForm.reset();
     }
+
+    setLoadingStatus(is_load) {
+    //устанавливает надпись на кнопке сабмита в зависимости от статуса загрузки
+        if (is_load) {
+            this._submitText = this._submitBtn.textContent;
+            this._submitBtn.textContent = 'Сохранение...'
+        } else {
+            this._submitBtn.textContent = this._submitText;
+        }
+    }
+    
 }
 
 export default PopupWithForm;

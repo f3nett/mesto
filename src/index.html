@@ -78,7 +78,7 @@
             id="input_descriprion"
             class="popup__input popup__input_type_profile-descriprion"
             type="text"
-            name="description"
+            name="about"
             required
             placeholder="Введите описание"
             minlength="2"
@@ -161,7 +161,7 @@
         </form>
       </div>
     </div>
-    <div class="popup popup_type_avatar popup_opacity_lite popup_opened">
+    <div class="popup popup_type_avatar popup_opacity_lite">
       <div class="popup__container popup__container_type_avatar">
         <button
           class="popup__close-button button button_opacity_medium"
@@ -174,11 +174,11 @@
             id="input_avatar"
             class="popup__input popup__input_type_avatar-link"
             type="url"
-            name="avatar-link"
+            name="avatar"
             required
             placeholder="https://somewebsite.com/someimage.jpg"
           />
-          <span id="input_link-error" class="popup__error"></span>
+          <span id="input_avatar-error" class="popup__error"></span>
           <button
             class="popup__submit-button button button_opacity_lite"
             type="submit"
@@ -192,7 +192,7 @@
       <article class="place-card">
         <img class="place-card__image" />
         <button
-          class="place-card__trash-button button button_opacity_strong"
+          class="place-card__trash-button place-card__trash-button_active button button_opacity_strong"
           type="button"
           aria-label="Удалить"
         ></button>

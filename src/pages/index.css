@@ -36,6 +36,7 @@
 @import url(../blocks/place-card/__like-button/_active/place-card__like-button_active.css);
 @import url(../blocks/place-card/__like-counter/place-card__like-counter.css);
 @import url(../blocks/place-card/__trash-button/place-card__trash-button.css);
+@import url(../blocks/place-card/__trash-button/_active/place-card__trash-button_active.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__subtitle/footer__subtitle.css);

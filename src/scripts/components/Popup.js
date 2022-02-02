@@ -7,6 +7,7 @@ class Popup {
     }
 
     _handleEscClose(evt) {
+    //обрабртка события нажатия кнопки Esc
         if (evt.key === 'Escape') {
             this.close();
         }
@@ -24,11 +25,13 @@ class Popup {
     }
 
     open() {
+    //открыть попап
         this._popup.classList.add(this._openedPopupClass);
         document.addEventListener('keydown', this._handleEscClose);
     }
 
     close() {
+    //закрыть попап
         this._popup.classList.remove(this._openedPopupClass);
         document.removeEventListener('keydown', this._handleEscClose);
     }
