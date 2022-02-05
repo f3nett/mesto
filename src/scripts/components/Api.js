@@ -4,6 +4,16 @@ class Api {
         this._token = token;
     }
 
+    _checkResponse(res) {
+    //проверка ответа
+        if (res.ok) {
+            return res.json();
+        }
+        else {
+            return Promise.reject(`Ошибка: ${res.status}`);
+        }
+    }
+
     getUser() {
     //получение информации о пользователе
         return fetch(`${this._url}/users/me`, {
@@ -11,14 +21,7 @@ class Api {
               authorization: this._token
             }
           })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })  
+            .then(this._checkResponse)
     }
 
     setUserData(userData) {
@@ -31,14 +34,7 @@ class Api {
             },
             body: JSON.stringify({name: userData.name, about: userData.about})
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
     }
 
     setUserPhoto(userPhoto) {
@@ -51,14 +47,7 @@ class Api {
             },
             body: JSON.stringify({avatar: userPhoto.avatar})
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
     }
 
     getCards() {
@@ -68,14 +57,7 @@ class Api {
               authorization: this._token
             }
           })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
     }
 
     postCard(card) {
@@ -88,14 +70,7 @@ class Api {
             },
             body: JSON.stringify({name: card.name, link: card.link})
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
     }
 
     deleteCard(cardId) {
@@ -106,14 +81,7 @@ class Api {
                 authorization: this._token
             }
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
     }
 
     addLike(cardId) {
@@ -124,14 +92,7 @@ class Api {
                 authorization: this._token
             }
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
     }
 
     deleteLike(cardId) {
@@ -142,14 +103,7 @@ class Api {
                 authorization: this._token
             }
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })        
+            .then(this._checkResponse)       
     }
 }
 

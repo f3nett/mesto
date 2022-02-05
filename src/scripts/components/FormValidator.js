@@ -86,6 +86,7 @@ class FormValidator {
 
     // Очистка ошибок ввода формы
     clearValidationErrors () {
+        this.toggleButtonState();
         this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement);
         });

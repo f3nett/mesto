@@ -38,12 +38,14 @@ const popupProfile = new PopupWithForm(indexConfig.popupProfileSelector, (userDa
   api.setUserData(userData)
     .then(res => {
       console.log('Данные пользователя обновлены:', res);
+      user.setUserInfo(userData);
+      popupProfile.close();
     })
     .catch(err => {
       console.log(err);
-    });
-  popupProfile.setLoadingStatus(false);
-  user.setUserInfo(userData);
+    })
+    .finally(() => popupProfile.setLoadingStatus(false)
+    );
 }, 
 popupConfig
 );
@@ -80,6 +82,7 @@ function generateCard(cardItem) {
         .then(res => {
             console.log(res);
             card.removeCard();
+            popupRemove.close();
         })
         .catch(err => {
           console.log(err);
@@ -121,11 +124,13 @@ const popupPlace = new PopupWithForm(indexConfig.popupPlaceSelector, (cardItem) 
       console.log('Добавлена новая карточка:', res);
       const newPlace = generateCard({_cardId: res._id, name: res.name, link: res.link, likes: res.likes, ownerId: res.owner._id});
       cardsList.addItem(newPlace);
+      popupPlace.close();
     })
     .catch(err => {
       console.log(err);
-    });
-  popupPlace.setLoadingStatus(false);
+    })
+    .finally(() => popupPlace.setLoadingStatus(false)
+    );
 }, popupConfig);
 popupPlace.setEventListeners();
 
@@ -135,13 +140,14 @@ const popupAvatar = new PopupWithForm(indexConfig.popupAvatarSelector, (userPhot
   api.setUserPhoto(userPhoto)
     .then(res => {
       console.log('Аватар обновлен:', res);
-      popupAvatar.setLoadingStatus(false);
+      user.setUserPhoto(userPhoto);
+      popupAvatar.close();
     })
     .catch(err => {
       console.log(err);
-    });
-  popupAvatar.setLoadingStatus(false);
-  user.setUserPhoto(userPhoto);
+    })
+    .finally(() => popupAvatar.setLoadingStatus(false)
+    );
 }, popupConfig);
 popupAvatar.setEventListeners();
 
@@ -153,15 +159,11 @@ buttonEditProfile.addEventListener('click', () => {
   inputProfileDescription.value = userData.about;
   //очистка ошибок инпутов
   profileValidator.clearValidationErrors();
-  //активация кнопки после присваивания значений инпутам
-  profileValidator.toggleButtonState();
   popupProfile.open();
 });
 
 //кнопка добавления новой карточки
 buttonAddPlace.addEventListener('click', () => {
-  //предварительная деактивация кнопки
-  placeValidator.toggleButtonState();
   //очистка ошибок инпутов
   placeValidator.clearValidationErrors();
   popupPlace.open();
@@ -173,8 +175,6 @@ buttonEditAvatar.addEventListener('click', () => {
   inputProfileAvatar.value = userPhoto;
   //очистка ошибок инпутов
   avatarValidator.clearValidationErrors();
-  //активация кнопки после присваивания значений инпутам
-  avatarValidator.toggleButtonState();
   popupAvatar.open();
 })
 

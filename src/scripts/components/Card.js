@@ -39,10 +39,8 @@ class Card {
             return item._id == this._userId
             }) === true) {
             this._deleteLike();
-            this._element.querySelector(this._likeButtonSelector).classList.remove(this._activeLikeButtonClass);
         } else {
                 this._addLike();
-                this._element.querySelector(this._likeButtonSelector).classList.add(this._activeLikeButtonClass);
         }
     }
 
@@ -86,7 +84,8 @@ class Card {
     } 
 
     updateLikes(cardData) {
-    //обновить кол-во лайков на карточке
+    //обновить статус лайков на карточке
+            this._element.querySelector(this._likeButtonSelector).classList.toggle(this._activeLikeButtonClass);
             this._likes = cardData.likes;
             this._element.querySelector(this._likeCounterSelector).textContent = this._likes.length;
         }

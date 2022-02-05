@@ -22,7 +22,6 @@ class PopupWithRemove extends Popup {
         this._popup.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._handleSubmit(this._item);
-            this.close();
         });
     }
 }
